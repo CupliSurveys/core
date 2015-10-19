@@ -16,8 +16,19 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", 'Rakefile', 'README.rdoc']
   # s.test_files = Dir["test/**/*"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency 'rails', '~> 4.2.4'
+  s.add_dependency 'state_machine'
+  s.add_dependency 'globalize', '~> 5.0.0'
+  s.add_dependency 'paper_trail', '~> 4.0.0'
+  s.add_dependency 'jc-validates_timeliness'
 
   s.add_development_dependency 'pg'
+  s.add_development_dependency 'byebug'
+  s.add_development_dependency 'rubocop'
+
+  s.add_development_dependency 'factory_girl_rails'
+  s.add_development_dependency 'faker'
+  s.add_development_dependency 'rspec-rails'
 end
