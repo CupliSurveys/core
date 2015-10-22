@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    core (0.0.4.2)
+    core (0.0.5)
       globalize (~> 5.0.0)
       jc-validates_timeliness
       paper_trail (~> 4.0.0)
