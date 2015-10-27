@@ -1,12 +1,13 @@
 module Core::Concerns
-  # Module HasAslQuestions provides ability to build ASL questions for Campaign
+  # Module HasDefaultsQuestions provides ability to build ASL questions for Campaign
   #   model before it creates
   #
-  module HasAslQuestions
+  module HasDefaultsQuestions
     extend ActiveSupport::Concern
 
     included do
       before_create :build_asl
+      before_create :add_collector
 
       # Creates ASL questions
       #
@@ -16,6 +17,13 @@ module Core::Concerns
           build_campaign_question(question, questions_vals[question.key.to_sym])
           substitutions.build(question: question)
         end
+      end
+
+      # Add quota collector
+      #
+      def add_collector
+        collector = ::Question.find_by(key: 'collector')
+        substitutions.build(question: collector)
       end
 
       # Build question with provided answer options

@@ -40,8 +40,8 @@ module Core
     # @option params [Array<Hash>] Answer attributes (see Answer)
     #
     def initialize(params = {})
-      @answer_objects = params.fetch(:answers, [])
-      params.delete(:answers)
+      @answer_objects = params.try(:fetch, :answers, [])
+      params.delete(:answers) if @answer_objects.present?
       super(params)
     end
 
