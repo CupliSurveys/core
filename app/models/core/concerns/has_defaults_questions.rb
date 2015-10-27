@@ -23,7 +23,7 @@ module Core::Concerns
       #
       def add_collector
         collector = ::Question.find_by(key: 'collector')
-        substitutions.build(question: collector)
+        campaign_questions.build(question: collector)
       end
 
       # Build question with provided answer options
