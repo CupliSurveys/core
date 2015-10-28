@@ -8,8 +8,6 @@ module Core
 
     validates :provider,
       presence: true
-    validates :remote_offer_id,
-      presence: true
     validates :cost_model,
       presence: true,
       inclusion: { in: %w(cpp cpa cpm cpc) }
