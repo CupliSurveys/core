@@ -7,7 +7,7 @@ module Core::Concerns
 
     included do
       before_create :build_asl
-      before_create :add_collector
+      before_create :build_collector
 
       # Creates ASL questions
       #
@@ -21,8 +21,8 @@ module Core::Concerns
 
       # Add quota collector
       #
-      def add_collector
-        collector = ::Question.find_by(key: 'collector')
+      def build_collector
+        collector = Core::Question.find_by(key: 'collector')
         campaign_questions.build(question: collector)
       end
 
