@@ -2,6 +2,8 @@ module Core
   # Defines offer model
   #
   class Offer < BaseModel
+    include Core::Concerns::Rewardable
+
     store_accessor :settings
 
     belongs_to :provider

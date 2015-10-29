@@ -38,6 +38,8 @@ module Core
   # такой же структуре. Для этого примера должно получиться 14 объектов Quotum.
   #
   class Quotum < BaseModel
+    include Core::Concerns::Rewardable
+
     store_accessor :settings, :value, :name
 
     belongs_to :campaign, touch: true
