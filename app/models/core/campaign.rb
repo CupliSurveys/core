@@ -7,7 +7,7 @@ module Core
     include Core::Concerns::CampaignValidations
     include Core::Concerns::CampaignStateMachine
 
-    include Core::Concerns::HasAslQuestions
+    include Core::Concerns::HasDefaultsQuestions
 
     store_accessor :settings
 
