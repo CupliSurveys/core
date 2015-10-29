@@ -117,6 +117,7 @@ class CreateCoreTablesIfNotExists < ActiveRecord::Migration
     unless table_exists?('core_offers')
       create_table 'core_offers', force: :cascade do |t|
         t.integer  'provider_id'
+        t.integer  'campaign_id'
         t.integer  'remote_offer_id'
         t.hstore   'settings',                                        default: {},   null: false
         t.datetime 'created_at'
