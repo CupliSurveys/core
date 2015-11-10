@@ -13,8 +13,6 @@ module Core
     validates :cost_model,
       presence: true,
       inclusion: { in: %w(cpp cpa cpm cpc) }
-    validates :locale,
-      presence: true
     validates :price,
       presence: true,
       numericality: { greater_than_or_equal_to: 0 }
