@@ -24,6 +24,7 @@ module Core
     private
 
     def normalize_data
+      return unless locale
       self.locale = locale.downcase
     end
   end
