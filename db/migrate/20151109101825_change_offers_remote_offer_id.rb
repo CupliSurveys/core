@@ -4,6 +4,6 @@ class ChangeOffersRemoteOfferId < ActiveRecord::Migration
   end
 
   def down
-    change_column :core_offers, :remote_offer_id, :integer, default: '', null: false
+    change_column :core_offers, :remote_offer_id, :integer
   end
 end
