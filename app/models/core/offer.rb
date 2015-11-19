@@ -18,6 +18,8 @@ module Core
       numericality: { greater_than_or_equal_to: 0 }
     validates :settings,
       settings: true
+    validates :name,
+      not_nil: true
 
     before_save :normalize_data
 
