@@ -9,6 +9,6 @@ module Core
     validates :campaign_question_id, presence: true
     validates :answerable_id,
       presence: true,
-      uniqueness: { scope: %i(campaign_question_id campaign_question_type) }
+      uniqueness: { scope: %i(campaign_question_id answerable_type) }
   end
 end
