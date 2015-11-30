@@ -31,6 +31,10 @@ module Core::Concerns
 
       validates :settings,
         settings: true
+
+      validates :remote_campaign_id,
+        uniqueness: { scope: :link_builder },
+        allow_blank: true
     end
   end
 end
