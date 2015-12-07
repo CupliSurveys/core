@@ -2,7 +2,7 @@ class AddProviderHandler < ActiveRecord::Migration
   def up
     add_column :core_providers, :handler, :string, null: false, default: ''
 
-    Provider.update_all('handler = slug') unless Rails.env.test?
+    Core::Provider.update_all('handler = slug') unless Rails.env.test?
   end
 
   def down

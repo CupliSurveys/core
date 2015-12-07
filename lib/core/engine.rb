@@ -1,3 +1,4 @@
+require 'byebug'
 module Core
   class Engine < ::Rails::Engine
     isolate_namespace Core
@@ -14,6 +15,12 @@ module Core
           end
         end
       end
+    end
+
+    config.generators do |g|
+      g.test_framework(:rspec, fixture: false)
+      g.assets false
+      g.helper false
     end
   end
 

@@ -108,7 +108,7 @@ module Core
     # @return [Answer, City, Region, Country] Answerable object
     #
     def find_answer(answer)
-      class_name = answer[:type].classify.constantize
+      class_name = "Core::#{answer[:type].classify}".constantize
 
       exact = class_name.find_by(id: answer[:id])
       return exact if exact
