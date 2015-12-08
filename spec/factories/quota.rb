@@ -11,5 +11,12 @@ FactoryGirl.define do
         value: [1, 2]
       }
     end
+
+    trait :city do
+      question { find_or_create(:city_question) }
+      settings(value: [1])
+    end
   end
+
+  factory :city_quotum, parent: :quotum, traits: [:city]
 end

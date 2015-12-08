@@ -14,6 +14,10 @@ require 'state_machine'
 
 require 'factory_girl'
 
+require 'simplecov'
+
+SimpleCov.start('rails')
+
 factories_dir = File.join(File.dirname(__FILE__), 'factories')
 FactoryGirl.definition_file_paths << factories_dir
 FactoryGirl.find_definitions
@@ -25,6 +29,11 @@ Dir["#{ File.dirname(__FILE__) }/support/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+
+  config.before(:each, mock: :elastic) do
+    allow_any_instance_of(Core::CampaignQuestion).
+      to receive(:find_answer).and_return(nil)
+  end
 
   config.mock_with :rspec
   config.use_transactional_fixtures = true

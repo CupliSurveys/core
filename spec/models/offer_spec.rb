@@ -27,4 +27,20 @@ describe Core::Offer do
         to validate_numericality_of(:price).is_greater_than_or_equal_to(0)
     end
   end
+
+  context 'instance methods' do
+    subject { create(:offer, attributes) }
+
+    describe '#normalize_data' do
+      describe 'normalizes locale' do
+        let(:attributes) { { locale: locale } }
+
+        context 'when uppercased locale' do
+          let(:locale) { :RU }
+
+          it { expect(subject.locale).to eq(locale.to_s.downcase) }
+        end
+      end
+    end
+  end
 end

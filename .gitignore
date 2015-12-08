@@ -10,3 +10,4 @@ spec/dummy/.sass-cache
 # Do not track .ruby-* files
 .ruby-gemset
 .ruby-version
+coverage
