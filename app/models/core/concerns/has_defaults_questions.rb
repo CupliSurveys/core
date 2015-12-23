@@ -33,13 +33,18 @@ module Core::Concerns
       #
       # TODO probably should be deleted
       def build_campaign_question(question, values)
-        answers = ::Core::Answer.where(text: values).where.not(text: [nil, ''])
-        ans_params = answers.map do |a|
+        answers = ::Core::Answer.
+          with_translations.
+          where(core_answer_translations: { text: values }).
+          where.not(text: [nil, ''])
+
+        answers_params = answers.map do |a|
           a.attributes.slice(*%w(id settings text))
         end
+
         campaign_questions.build(
           question: question,
-          answers: ans_params,
+          answers: answers_params,
           settings: { 'question_type': question.key }
         )
       end

@@ -7,15 +7,6 @@ module Core
   # @attribute [Hash] settings
   #   Stores settings for rendering
   #
-  # @example Question for radio input type
-  #   Question.create!(
-  #     title: 'Коэффициент полезного действия нагревательного прибора',
-  #     description: 'Есть сферический кипятильник в сферическом чайнике. КПД?'
-  #     settings: {
-  #       values: { 100 => '100%', 50 => '50%', 20 => '20%' },
-  #       template: :radio
-  #     }
-  #   )
 
   class Question < BaseModel
     translates :title, :text, fallbacks_for_empty_translations: true
@@ -64,7 +55,9 @@ module Core
       states = %i(active previewing)
       active_campaign_ids = ::Core::Campaign.with_state(states).pluck(:id)
 
-      campaign_questions.where(campaign_id: active_campaign_ids).pluck(:id)
+      campaign_questions.
+        where(campaign_id: active_campaign_ids, question: self).
+        pluck(:id)
     end
 
     def redirect_object

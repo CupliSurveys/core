@@ -14,7 +14,7 @@ describe NotNilValidator do
     let(:value) { nil }
 
     it 'returns error' do
-      expect(object.errors[:key]).to include("can't be null")
+      expect(object.errors.keys).to include(:key)
     end
   end
 

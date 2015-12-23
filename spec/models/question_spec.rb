@@ -24,18 +24,6 @@ describe Core::Question do
   end
 
   context 'instance method' do
-    pending '#answers' do
-      expect(true).to be_truthty
-    end
-
-    pending '#campaign_question_ids' do
-      expect(true).to be_truthty
-    end
-
-    pending '#campaign_question_answers' do
-      expect(true).to be_truthty
-    end
-
     describe '#redirect_object' do
       it 'references to parrent' do
         some_question = create(:question, parent_id: question.id)

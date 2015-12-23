@@ -24,6 +24,7 @@ module Core
   class CampaignQuestion < BaseModel
     include Core::Concerns::CampaignQuestionAssociations
 
+    store_accessor :settings, :question_type
     around_save :build_answers
 
     validates :campaign_id,

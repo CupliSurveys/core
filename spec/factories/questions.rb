@@ -13,7 +13,11 @@ FactoryGirl.define do
     end
 
     trait :gender do
-      key :gender
+      key 'gender'
+      after(:create) do
+        create(:answer, text: 'male')
+        create(:answer, text: 'female')
+      end
     end
 
     trait :collector do

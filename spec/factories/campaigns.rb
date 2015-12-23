@@ -12,7 +12,7 @@ FactoryGirl.define do
       after(:build) do |campaign|
         city_question = find_or_create(:question, key: :city_id)
         age_question = find_or_create(:question, key: :age)
-        gender_question = find_or_create(:question, key: :gender)
+        gender_question = find_or_create(:gender_question, key: :gender)
 
         create(:substitution, campaign: campaign, question: age_question)
         create(:substitution, campaign: campaign, question: gender_question)
