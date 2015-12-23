@@ -12,11 +12,10 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://cup.li/'
   s.summary     = "Core of Cupli's applications"
   # s.description = 'TODO: Description of Core.'
-  # s.license     = "MIT"
+  # s.license     = ''
 
-  s.files = Dir["{app,config,db,lib}/**/*", 'Rakefile', 'README.rdoc']
-  # s.test_files = Dir["test/**/*"]
-  s.test_files = Dir["spec/**/*"]
+  s.files = Dir['{app,config,db,lib}/**/*', 'Rakefile', 'README.rdoc']
+  s.test_files = Dir['spec/**/*']
 
   s.add_dependency 'rails', '~> 4.2.4'
   s.add_dependency 'state_machine'
@@ -28,7 +27,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'byebug'
   s.add_development_dependency 'rubocop'
 
+  s.add_development_dependency 'simplecov'
   s.add_development_dependency 'factory_girl_rails'
+  s.add_development_dependency 'shoulda-matchers', '~> 2.8.0'
   s.add_development_dependency 'faker'
   s.add_development_dependency 'rspec-rails'
 end

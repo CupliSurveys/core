@@ -12,7 +12,7 @@ module Core::Concerns
     end
 
     def name
-      full_name.present? ? full_name : email
+      full_name.presence || email
     end
 
     def full_name=(string)

@@ -1,0 +1,5 @@
+en:
+  errors:
+    messages:
+      invalid: "is invalid"
+      can_not_be_nil: "can't be null"

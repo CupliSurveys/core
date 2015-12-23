@@ -23,7 +23,8 @@ module Core::Concerns
       #
       # @return [Substitution]
       def substitution
-        ::Substitution.find_by(campaign_id: campaign_id, question_id: question_id)
+        ::Core::Substitution.
+          find_by(campaign_id: campaign_id, question_id: question_id)
       end
     end
   end
