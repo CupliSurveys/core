@@ -36,5 +36,5 @@ Core
 Чтобы гем тянулся с Github, а не из локальной папки нужно выполнить:
 ```
 bundle config --delete local.core
-bundle install
+bundle update core
 ```
