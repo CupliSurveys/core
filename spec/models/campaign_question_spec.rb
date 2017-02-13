@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Core::CampaignQuestion do
+  let!(:collector) { create(:question, :collector) }
   it do
     is_expected.
       to allow_value(question_type: 'number_input', shuffled_answers: false).
