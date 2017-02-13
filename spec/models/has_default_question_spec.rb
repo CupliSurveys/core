@@ -1,6 +1,7 @@
 require 'spec_helper'
 describe 'HasDefaultQuestions' do
   let(:campaign) { create(:campaign, state: :active) }
+  let!(:collector) { create(:question, :collector) }
 
   describe 'default asl' do
     it 'campaign questions' do
@@ -24,6 +25,10 @@ describe 'HasDefaultQuestions' do
 
       expect(question.key).to eq('gender')
       expect(question.answers.count).to eq(2)
+    end
+
+    it 'generates empty collector' do
+      expect(campaign.quota.first.question.key).to eq('collector')
     end
   end
 end

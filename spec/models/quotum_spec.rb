@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Core::Quotum do
+  let!(:collector) { create(:question, :collector) }
   describe 'validations' do
     it { is_expected.to validate_presence_of(:campaign) }
     let(:settings) { {} }
@@ -35,11 +36,11 @@ describe Core::Quotum do
 
   describe 'scopes' do
     describe '#roots' do
-      let(:roots) { create_list(:quotum, 3, parent_ids: []) }
+      let(:campaign) { create(:campaign) }
       let(:non_roots) { create_list(:quotum, 10, parent_ids: roots.map(&:id)) }
 
       it 'returns root quota' do
-        expect(Core::Quotum.roots).to eq(roots)
+        expect(campaign.quota.roots.map{|i| i.question.key}).to include('collector')
       end
     end
 

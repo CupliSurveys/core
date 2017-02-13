@@ -24,6 +24,7 @@ module Core::Concerns
       def build_collector
         collector = Core::Question.find_by(key: 'collector')
         campaign_questions.build(question: collector)
+        quota.build(question: collector, target: 0)
       end
 
       # Build question with provided answer options
