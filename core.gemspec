@@ -19,8 +19,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails'
   s.add_dependency 'state_machine'
-  s.add_dependency 'globalize', '~> 5.0.0'
-  s.add_dependency 'paper_trail', '~> 4.0.0'
+  s.add_dependency 'globalize'
+  s.add_dependency 'paper_trail'
   s.add_dependency 'jc-validates_timeliness'
 
   s.add_development_dependency 'pg'
@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'factory_girl_rails'
-  s.add_development_dependency 'shoulda-matchers', '~> 2.8.0'
+  s.add_development_dependency 'shoulda-matchers'
   s.add_development_dependency 'faker'
   s.add_development_dependency 'rspec-rails'
 end
